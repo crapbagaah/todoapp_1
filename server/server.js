@@ -15,7 +15,7 @@ app.use(express.json())
 //org level/large group connection --> mongodb://url:port/?username={}?password={}/dbname
 // mongoose.connect(process.env.MONGO_URI)
 //     .then(() => console.log('Successfully connected to MongoDB'))
-//     .catch((err) => console.error(Error connecting to DB ${err.message})) 
+//     .catch((err) => console.error(Error connecting to DB ${err.message}))
 
 
 // connect database
@@ -35,7 +35,7 @@ app.use('/api', authRoutes);
 
 const PORT = process.env.PORT || 8000;
 
-// Define ports
+// Define port
 app.listen(PORT, () => {
     console.log(`Todo app server is listening on port ${PORT}`);
 })
