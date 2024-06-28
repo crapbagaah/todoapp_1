@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-exports.authenticate = async (req, res, next) => {
+const authenticate = async (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1]
     if (token) {
         jwt.verify(
@@ -24,3 +24,5 @@ exports.authenticate = async (req, res, next) => {
         res.status(401).send({ message: 'Not Logged in. Signup or Login to access this resource!' })
     }
 }
+
+module.exports = { authenticate };
