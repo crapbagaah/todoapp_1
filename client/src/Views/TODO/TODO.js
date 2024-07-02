@@ -29,7 +29,7 @@ export function TODO(props) {
     const getTodo = async () => {
         const options = {
             method: "GET",
-            url: `http://localhost:8000/api/todo`,
+            url: `${process.env.REACT_APP_SERVER_URL}/api/todo`,
             headers: {
                 accept: "application/json"
             }
@@ -46,7 +46,7 @@ export function TODO(props) {
     const addTodo = () => {
         const options = {
             method: "POST",
-            url: `http://localhost:8000/api/todo`,
+            url: `${process.env.REACT_APP_SERVER_URL}/api/todo`,
             headers: {
                 accept: "application/json"
             },
@@ -68,7 +68,7 @@ export function TODO(props) {
     const deleteTodo = (id) => {
         const options = {
             method: "DELETE",
-            url: `http://localhost:8000/api/todo/${id}`,
+            url: `${process.env.REACT_APP_SERVER_URL}/api/todo/${id}`,
             headers: {
                 accept: "application/json"
             }
@@ -88,7 +88,7 @@ export function TODO(props) {
         const todoToUpdate = todoData.find(todo => todo._id === id)
         const options = {
             method: "PATCH",
-            url: `http://localhost:8000/api/todo/${id}`,
+            url: `${process.env.REACT_APP_SERVER_URL}/api/todo/${id}`,
             headers: {
                 accept: "application/json"
             },
@@ -114,7 +114,7 @@ export function TODO(props) {
         const newDescription=prompt("Enter description", todoToEdit.description)
         const options = {
             method: "PATCH",
-            url: `http://localhost:8000/api/todo/${id}`,
+            url: `${process.env.REACT_APP_SERVER_URL}/api/todo/${id}`,
             headers: {
                 accept: "application/json"
             },
@@ -241,7 +241,7 @@ export function TODO(props) {
     const getTodo = async () => {
         const options = {
             method: "GET",
-            url: `http://localhost:8000/api/todo`,
+            url: `${process.env.REACT_APP_SERVER_URL}/api/todo`,
             headers: {
                 accept: "application/json"
             }
@@ -258,7 +258,7 @@ export function TODO(props) {
     const addTodo = () => {
         const options = {
             method: "POST",
-            url: `http://localhost:8000/api/todo`,
+            url: `${process.env.REACT_APP_SERVER_URL}/api/todo`,
             headers: {
                 accept: "application/json"
             },
@@ -281,7 +281,7 @@ export function TODO(props) {
     const deleteTodo = (id) => {
         const options = {
             method: "DELETE",
-            url: `http://localhost:8000/api/todo/${id}`,
+            url: `${process.env.REACT_APP_SERVER_URL}/api/todo/${id}`,
             headers: {
                 accept: "application/json"
             }
@@ -301,7 +301,7 @@ export function TODO(props) {
         const todoToUpdate = todoData.find(todo => todo._id === id)
         const options = {
             method: "PATCH",
-            url: `http://localhost:8000/api/todo/${id}`,
+            url: `${process.env.REACT_APP_SERVER_URL}/api/todo/${id}`,
             headers: {
                 accept: "application/json"
             },

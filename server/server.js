@@ -13,9 +13,9 @@ const app = express();
 app.use(express.json())
 
 //org level/large group connection --> mongodb://url:port/?username={}?password={}/dbname
-// mongoose.connect(process.env.MONGO_URI)
-//     .then(() => console.log('Successfully connected to MongoDB'))
-//     .catch((err) => console.error(Error connecting to DB ${err.message}))
+/* mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('Successfully connected to MongoDB'))
+    .catch((err) => console.error(Error connecting to DB ${err.message})) */
 
 
 // connect database
@@ -24,18 +24,25 @@ connectMongoDB();
 // CORS Policy
 app.use(cors({
     origin: [
-        'http://localhost:3000'
+        //'http://localhost:3000'
+        '*',
+        "https://todoapp-client-five.vercel.app"
     ],
     credentials: true
 }))
 
 // Routes
-app.use('/api/todo', authenticate, todoRoutes);
+app.use('/api/todo',/* authenticate, */ todoRoutes);
 app.use('/api', authRoutes);
+app.get("/", async(req,res)=>{
+    return res.status(200).send({message: "Todo App is up and running"})
+})
 
 const PORT = process.env.PORT || 8000;
 
-// Define port
+
 app.listen(PORT, () => {
     console.log(`Todo app server is listening on port ${PORT}`);
 })
+
+module.exports = app;
